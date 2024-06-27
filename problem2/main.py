@@ -1,5 +1,20 @@
 def primeX(x):
-    return 0
+    if x < 1:
+        return None
+
+    primes = []
+    num = 2
+    while len(primes) < x:
+        is_prime = True
+        for prime in primes:
+            if num % prime == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(num)
+        num += 1
+
+    return primes[-1]
 
 if __name__ == "__main__":
     print(primeX(1))  # 2
